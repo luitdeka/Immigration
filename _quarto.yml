@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Immigration"
+  title: "Immigration Attitudes"
   navbar:
     left:
       - href: index.qmd

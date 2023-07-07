@@ -1,9 +1,16 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Immigration Attitudes",
+    "section": "",
+    "text": "\\[y_i = \\beta_0  + \\beta_1 x_{1,i} + \\beta_2 x_{2,i}\\] with \\(y = att\\_end\\), \\(x_1 = att\\_start\\), and \\(x_2 = liberal\\)."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "My Name is Luit Deka. You can reach me at “luitdeka@gmail.com”"
   }
 ]

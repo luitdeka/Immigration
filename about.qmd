@@ -2,8 +2,6 @@
 title: "About"
 ---
 
-About this site
+My Name is Luit Deka. You can reach me at "luitdeka@gmail.com"
 
-```{r}
-1 + 1
-```
+

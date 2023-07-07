@@ -1,5 +1,4 @@
 ---
-title: "Immigration"
 execute: 
   echo: false
 ---
@@ -9,5 +8,45 @@ execute:
 #| warning: false
 library(tidyverse)
 library(primer.data)
+library(rstanarm)
+```
+
+```{r}
+x <- trains |>
+  select(att_start, liberal, att_end)
+```
+
+```{r}
+fit_obj <- stan_glm(data = x,
+         formula = att_end ~ liberal + att_start,
+         family = gaussian,
+         refresh = 0,
+         seed = 42)
+```
+
+$$y_i = \beta_0  + \beta_1 x_{1,i} + \beta_2 x_{2,i}$$ 
+with $y = att\_end$, $x_1 = att\_start$, and $x_2 = liberal$.
+
+```{r}
+new_obj <- tibble(att_start = 6, liberal = FALSE)
+```
+
+```{r}
+pp <- posterior_epred(object = fit_obj,
+                newdata = new_obj) |>
+  as_tibble()
+```
+
+```{r}
+pp |> 
+  ggplot(aes(x = `1`)) +
+    geom_histogram(aes(y = after_stat(count/sum(count))),
+                   bins = 100)  +
+    labs(title = "Posterior for Immigration Attitude of a Liberal when Att_start is 6",
+         subtitle = "The Attitudes are relatively Liberal",
+         x = "Att_end",
+         y = "Probability") +
+scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+    theme_classic()
 ```
 
